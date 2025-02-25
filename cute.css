@@ -1,0 +1,142 @@
+body {
+    background-color: #ffd6e0; /* Soft pink */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+/* Heart Shape Button */
+#heart {
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    transition: transform 0.3s;
+    transform: rotate(45deg);
+    position: relative;
+}
+
+#heart::before,
+#heart::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+#heart::before {
+    top: -60px;
+    left: 0;
+}
+
+#heart::after {
+    left: -60px;
+    top: 0;
+}
+
+#heart span {
+    transform: rotate(-45deg);
+    position: relative;
+    z-index: 1;
+}
+
+#heart:hover {
+    transform: scale(1.1) rotate(45deg);
+}
+
+/* Small Hearts for Explosion */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    transform: rotate(45deg);
+    animation: explode 1s forwards;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Love Letter Typing Animation */
+#letter {
+    font-size: 18px;
+    color: #333;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    white-space: pre-line; /* Preserves line breaks */
+    overflow: hidden;
+    border-right: 2px solid transparent; /* Cursor effect */
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+/* Next Button */
+#nextButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+#nextButton:hover {
+    background-color: #ff1f4d;
+}
