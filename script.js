@@ -1,6 +1,6 @@
-let page = 0; // Track the current page
+let page = 0;
+let typingFinished = false; // Track if typing is complete
 
-// Love letter pages
 const pages = [
     `Hii, jo!!!,  
 i make this site for you hehe, ahhm`,
@@ -54,7 +54,7 @@ function explodeHearts() {
         }, 1000);
     }
 
-    // Show the image and start typing the first page
+    // Show the content and start typing the first page
     setTimeout(() => {
         document.getElementById("content").classList.remove("hidden");
         typeLetter();
@@ -64,11 +64,12 @@ function explodeHearts() {
 function typeLetter() {
     let letterElement = document.getElementById("letter");
     let nextButton = document.getElementById("nextButton");
-    let text = pages[page];
+    let text = pages[page]; // Get the current page text
     let i = 0;
 
     letterElement.innerHTML = ""; // Clear previous text
-    nextButton.classList.add("hidden"); // Hide "Next" button until typing is done
+    nextButton.classList.add("hidden"); // Hide next button until typing is done
+    typingFinished = false; // Reset typing finished flag
 
     function type() {
         if (i < text.length) {
@@ -76,7 +77,10 @@ function typeLetter() {
             i++;
             setTimeout(type, 50);
         } else {
-            nextButton.classList.remove("hidden"); // Show "Next" button when typing is done
+            typingFinished = true; // Mark typing as finished
+            if (page < pages.length - 1) {
+                nextButton.classList.remove("hidden"); // Show "Next" button
+            }
         }
     }
 
@@ -84,8 +88,10 @@ function typeLetter() {
 }
 
 function nextPage() {
-    if (page < pages.length - 1) {
-        page++; // Move to the next page
+    if (!typingFinished) return; // Prevent skipping before text is done
+
+    page++; // Move to the next page
+    if (page < pages.length) {
         typeLetter(); // Start typing the next page
     }
 }
