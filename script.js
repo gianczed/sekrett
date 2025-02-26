@@ -2,17 +2,45 @@ let page = 0; // Track the current page
 
 // Love letter pages
 const pages = [
-    `Dear love,  
-You are the light that brightens my darkest days.  
-Every moment with you is a beautiful memory.  
-Forever yours,  
-[Your Name]`,
+    `Hii, jo!!!,  
+i make this site for you hehe, ahhm`,
+` Ay oo nga palaa, tapos na yung poem na sinulat ko about you!!
     
-    `Even in the hardest times, your love gives me strength.  
-With you, I feel safe, happy, and complete.  
-I promise to cherish you forever.  
-Always,  
-[Your Name]`
+    `,
+
+    `and guess what!
+  `,
+`dito ko nalang ipapabasa sayo ito na...
+
+    `,
+    `The way you move through this world
+with kindness in your hands,
+patience in your voice,
+and a heart that makes everyone feel safe.
+`,
+    
+ `I’ve seen so many beautiful things,
+but nothing compares to you.
+Not just your face, not just your smile,
+but the way you make people feel,
+the way you make me feel—
+like I’ve finally found home.
+`,
+    
+`If one day you feel so lost,
+Like every road has somehow crossed,
+And everything feels dark and blue,
+Don’t worry. ’ll find you.
+`,
+    
+`Through rainy days and stormy skies,
+I’ll be right there, no need for cries.
+No matter what, no matter where,
+Just call my name, and I’ll be there.`
+`yah thats all i hope nagustuhan mo hehe.`
+
+
+    `I really like you.`
 ];
 
 function explodeHearts() {
