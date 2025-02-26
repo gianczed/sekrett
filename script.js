@@ -1,40 +1,65 @@
-let page = 0;
-let typingInterval;
+let page = 0; // Track the current page
+
+// Love letter pages
 const pages = [
     `Hii, jo!!!,  
-Ginawa ko itong site para sa'yo hehe, ahhm...`,
-    
-    `Ay oo nga pala, tapos na yung tula na sinulat ko tungkol sa'yo!!`,
-    
-    `At guess what!`,
-    
-    `Dito ko na lang ipapabasa sa'yo, ito na...`,
-    
-    `Kung paano ka kumilos sa mundong ito  
-may kabutihan sa iyong mga kamay,  
-pasensya sa iyong tinig,  
-at pusong nagpaparamdam ng seguridad sa lahat.`,
-    
-    `Marami na akong nakitang magagandang bagay,  
-pero wala pa ring tatalo sa'yo.  
-Hindi lang ang iyong mukha, hindi lang ang iyong ngiti,  
-kundi ang paraan mo sa pagpaparamdam sa iba,  
-ang paraan mo sa pagpaparamdam sa akin—  
-parang nahanap ko na ang tahanan.`,
-    
-    `Kung isang araw ay pakiramdam mong naliligaw ka,  
-parang ang lahat ng daan ay nagkasalubong,  
-at ang lahat ay madilim at malungkot,  
-huwag kang mag-alala. Hahanapin kita.`,
-    
-    `Sa mga maulan na araw at madilim na langit,  
-nandito lang ako, walang kailangang luha.  
-Kahit saan, kahit kailan,  
-tawagin mo lang ako at darating ako.`,
-    
-    `At may isa pa akong gustong sabihin...  
-I really like you.`
+i make this site for you hehe, ahhm`,
+    `Ay oo nga pala, tapos na yung poem na sinulat ko about you!!`,
+    `and guess what!`,
+    `dito ko nalang ipapabasa sayo ito na...`,
+    `The way you move through this world  
+with kindness in your hands,  
+patience in your voice,  
+and a heart that makes everyone feel safe.`,
+    `I’ve seen so many beautiful things,  
+but nothing compares to you.  
+Not just your face, not just your smile,  
+but the way you make people feel,  
+the way you make me feel—  
+like I’ve finally found home.`,
+    `If one day you feel so lost,  
+Like every road has somehow crossed,  
+And everything feels dark and blue,  
+Don’t worry. I’ll find you.`,
+    `Through rainy days and stormy skies,  
+I’ll be right there, no need for cries.  
+No matter what, no matter where,  
+Just call my name, and I’ll be there.`,
+    `And one thing I really want to say...`,
+    `I really like you.`
 ];
+
+function explodeHearts() {
+    let heart = document.getElementById("heart");
+    let container = document.querySelector(".container");
+
+    // Remove the heart button
+    heart.style.display = "none";
+
+    // Create multiple hearts for explosion effect
+    for (let i = 0; i < 10; i++) {
+        let smallHeart = document.createElement("div");
+        smallHeart.classList.add("heart");
+
+        let x = (Math.random() - 0.5) * 400 + "px";
+        let y = (Math.random() - 0.5) * 400 + "px";
+
+        smallHeart.style.setProperty("--x", x);
+        smallHeart.style.setProperty("--y", y);
+
+        container.appendChild(smallHeart);
+
+        setTimeout(() => {
+            smallHeart.remove();
+        }, 1000);
+    }
+
+    // Show the image and start typing the first page
+    setTimeout(() => {
+        document.getElementById("content").classList.remove("hidden");
+        typeLetter();
+    }, 1000);
+}
 
 function typeLetter() {
     let letterElement = document.getElementById("letter");
@@ -42,37 +67,25 @@ function typeLetter() {
     let text = pages[page];
     let i = 0;
 
-    clearInterval(typingInterval);  // Stop any previous typing interval
-
-    letterElement.innerHTML = "";  // Clear previous text
-    nextButton.classList.add("hidden");  // Hide "Next" button until typing finishes
+    letterElement.innerHTML = ""; // Clear previous text
+    nextButton.classList.add("hidden"); // Hide "Next" button until typing is done
 
     function type() {
         if (i < text.length) {
             letterElement.innerHTML += text.charAt(i);
             i++;
+            setTimeout(type, 50);
         } else {
-            clearInterval(typingInterval);  // Stop typing animation
-            nextButton.classList.remove("hidden");  // Show "Next" button
+            nextButton.classList.remove("hidden"); // Show "Next" button when typing is done
         }
     }
 
-    typingInterval = setInterval(type, 50); // Start typing animation
+    type();
 }
 
 function nextPage() {
-    let letterElement = document.getElementById("letter");
-
-    if (letterElement.innerHTML.length < pages[page].length) {
-        // If the typing isn't finished, show full text immediately
-        clearInterval(typingInterval);
-        letterElement.innerHTML = pages[page];
-        document.getElementById("nextButton").classList.remove("hidden");
-    } else {
-        // If full text is already displayed, go to the next page
-        if (page < pages.length - 1) {
-            page++;
-            typeLetter();
-        }
+    if (page < pages.length - 1) {
+        page++; // Move to the next page
+        typeLetter(); // Start typing the next page
     }
 }
