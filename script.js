@@ -4,9 +4,11 @@ let typingFinished = false; // Track if typing is complete
 const pages = [
     `Hii, jo!!!,  
 i made this site for you hehe, ahhm`,
+`baka sira tong code ko na to`,
+    `wag mo nalang inext pag di pa tapos i type HAHAHHSHA`,
     `Ay oo nga pala, tapos na yung poem na sinulat ko about you!!`,
     `and guess what!`,
-    `dito ko nalang ipapabasa sayo ito na...`,
+    `dito ko nalang ipapabasa sayo ito na 1... 2...3`,
     `The way you move through this world  
 with kindness in your hands,  
 patience in your voice,  
