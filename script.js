@@ -29,7 +29,7 @@ No matter what, no matter where,
 Just call my name, and I’ll be there.`,
     `And one thing I really want to say...`,
     `I really like you.`,
-    `and yeah I'm always here for you.`,
+    `and yeah, I'm always here for you.`,
     `thank you for reading this!!!`
 ];
 
@@ -37,10 +37,8 @@ function explodeHearts() {
     let heart = document.getElementById("heart");
     let container = document.querySelector(".container");
 
-    // Remove the heart button
     heart.style.display = "none";
 
-    // Create multiple hearts for explosion effect
     for (let i = 0; i < 10; i++) {
         let smallHeart = document.createElement("div");
         smallHeart.classList.add("heart");
@@ -48,9 +46,7 @@ function explodeHearts() {
         let x = (Math.random() - 0.5) * 400 + "px";
         let y = (Math.random() - 0.5) * 400 + "px";
 
-        smallHeart.style.setProperty("--x", x);
-        smallHeart.style.setProperty("--y", y);
-
+        smallHeart.style.transform = `translate(${x}, ${y}) rotate(45deg)`;
         container.appendChild(smallHeart);
 
         setTimeout(() => {
@@ -58,7 +54,6 @@ function explodeHearts() {
         }, 1000);
     }
 
-    // Show the content and start typing the first page
     setTimeout(() => {
         document.getElementById("content").classList.remove("hidden");
         typeLetter();
@@ -68,12 +63,12 @@ function explodeHearts() {
 function typeLetter() {
     let letterElement = document.getElementById("letter");
     let nextButton = document.getElementById("nextButton");
-    let text = pages[page]; // Get the current page text
+    let text = pages[page];
     let i = 0;
 
-    letterElement.innerHTML = ""; // Clear previous text
-    nextButton.classList.add("hidden"); // Hide next button until typing is done
-    typingFinished = false; // Reset typing finished flag
+    letterElement.innerHTML = "";
+    nextButton.classList.add("hidden");
+    typingFinished = false;
 
     function type() {
         if (i < text.length) {
@@ -81,9 +76,9 @@ function typeLetter() {
             i++;
             setTimeout(type, 50);
         } else {
-            typingFinished = true; // Mark typing as finished
+            typingFinished = true;
             if (page < pages.length - 1) {
-                nextButton.classList.remove("hidden"); // Show "Next" button
+                nextButton.classList.remove("hidden");
             }
         }
     }
@@ -92,10 +87,10 @@ function typeLetter() {
 }
 
 function nextPage() {
-    if (!typingFinished) return; // Prevent skipping before text is done
+    if (!typingFinished) return;
 
-    page++; // Move to the next page
+    page++;
     if (page < pages.length) {
-        typeLetter(); // Start typing the next page
+        typeLetter();
     }
 }
