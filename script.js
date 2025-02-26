@@ -3,7 +3,7 @@ let typingFinished = false; // Track if typing is complete
 
 const pages = [
     `Hii, jo!!!,  
-i make this site for you hehe, ahhm`,
+i made this site for you hehe, ahhm`,
     `Ay oo nga pala, tapos na yung poem na sinulat ko about you!!`,
     `and guess what!`,
     `dito ko nalang ipapabasa sayo ito na...`,
@@ -27,6 +27,8 @@ No matter what, no matter where,
 Just call my name, and I’ll be there.`,
     `And one thing I really want to say...`,
     `I really like you.`
+    `and yeah im always here for u.`
+    `thank you for reading this!!!.
 ];
 
 function explodeHearts() {
