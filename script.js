@@ -1,5 +1,5 @@
-let page = 0; 
-
+let page = 0;
+let typingInterval;
 const pages = [
     `Hii, jo!!!,  
 Ginawa ko itong site para sa'yo hehe, ahhm...`,
@@ -36,51 +36,43 @@ tawagin mo lang ako at darating ako.`,
 I really like you.`
 ];
 
-function explodeHearts() {
-    let heart = document.getElementById("heart");
-    let container = document.querySelector(".container");
-
-    heart.style.display = "none"; 
-
-    for (let i = 0; i < 10; i++) {
-        let smallHeart = document.createElement("div");
-        smallHeart.classList.add("heart");
-
-        let x = (Math.random() - 0.5) * 400 + "px";
-        let y = (Math.random() - 0.5) * 400 + "px";
-
-        smallHeart.style.setProperty("--x", x);
-        smallHeart.style.setProperty("--y", y);
-
-        container.appendChild(smallHeart);
-
-        setTimeout(() => {
-            smallHeart.remove();
-        }, 1000);
-    }
-
-    setTimeout(() => {
-        document.getElementById("content").classList.remove("hidden");
-        showLetter(); // Call showLetter instead of typeLetter
-    }, 1000);
-}
-
-// Function to instantly show the full paragraph
-function showLetter() {
+function typeLetter() {
     let letterElement = document.getElementById("letter");
     let nextButton = document.getElementById("nextButton");
+    let text = pages[page];
+    let i = 0;
 
-    letterElement.innerHTML = pages[page]; // Instantly display full text
-    nextButton.classList.add("hidden");
+    clearInterval(typingInterval);  // Stop any previous typing interval
 
-    if (page < pages.length - 1) {
-        nextButton.classList.remove("hidden");
+    letterElement.innerHTML = "";  // Clear previous text
+    nextButton.classList.add("hidden");  // Hide "Next" button until typing finishes
+
+    function type() {
+        if (i < text.length) {
+            letterElement.innerHTML += text.charAt(i);
+            i++;
+        } else {
+            clearInterval(typingInterval);  // Stop typing animation
+            nextButton.classList.remove("hidden");  // Show "Next" button
+        }
     }
+
+    typingInterval = setInterval(type, 50); // Start typing animation
 }
 
 function nextPage() {
-    if (page < pages.length - 1) {
-        page++;
-        showLetter(); // Directly show the next paragraph
+    let letterElement = document.getElementById("letter");
+
+    if (letterElement.innerHTML.length < pages[page].length) {
+        // If the typing isn't finished, show full text immediately
+        clearInterval(typingInterval);
+        letterElement.innerHTML = pages[page];
+        document.getElementById("nextButton").classList.remove("hidden");
+    } else {
+        // If full text is already displayed, go to the next page
+        if (page < pages.length - 1) {
+            page++;
+            typeLetter();
+        }
     }
 }
