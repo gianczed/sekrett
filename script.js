@@ -1,5 +1,5 @@
 let page = 0;
-let typingFinished = false; // Track if typing is complete
+let typingFinished = false;
 
 const pages = [
     `Hii, jo!!!,  
@@ -42,11 +42,15 @@ function explodeHearts() {
     for (let i = 0; i < 10; i++) {
         let smallHeart = document.createElement("div");
         smallHeart.classList.add("heart");
+        smallHeart.innerHTML = "💖";
 
-        let x = (Math.random() - 0.5) * 400 + "px";
-        let y = (Math.random() - 0.5) * 400 + "px";
+        let x = (Math.random() - 0.5) * 300;
+        let y = (Math.random() - 0.5) * 300;
 
-        smallHeart.style.transform = `translate(${x}, ${y}) rotate(45deg)`;
+        smallHeart.style.left = `50%`;
+        smallHeart.style.top = `50%`;
+        smallHeart.style.transform = `translate(${x}px, ${y}px)`;
+
         container.appendChild(smallHeart);
 
         setTimeout(() => {
@@ -88,7 +92,7 @@ function typeLetter() {
 
 function nextPage() {
     if (!typingFinished) return;
-
+    
     page++;
     if (page < pages.length) {
         typeLetter();
