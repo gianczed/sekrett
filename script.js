@@ -36,9 +36,11 @@ Just call my name, and I’ll be there.`,
 function showContent() {
     let heart = document.getElementById("heart");
     let content = document.getElementById("content");
+    let picture = document.getElementById("picture");
 
     heart.style.display = "none";
     content.classList.remove("hidden");
+    picture.classList.remove("hidden");
 
     setTimeout(typeLetter, 1000);
 }
