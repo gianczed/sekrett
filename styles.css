@@ -25,16 +25,11 @@ body {
     width: 100px;
     height: 100px;
     background-color: red;
-    border: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    border-radius: 50%;
-    transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 #heart::before,
@@ -58,7 +53,7 @@ body {
 }
 
 #heart:hover {
-    transform: scale(1.1) rotate(45deg);
+    transform: translate(-50%, -50%) scale(1.1) rotate(45deg);
 }
 
 #content {
