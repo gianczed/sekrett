@@ -3,7 +3,7 @@ let typingFinished = false;
 
 const pages = [
     `Hii, jo!!!,  
-i made this site for you hehe, ahhm`,
+I made this site for you hehe, ahhm`,
     `baka sira tong code ko na to`,
     `wag mo nalang inext pag di pa tapos i type HAHAHHSHA`,
     `Ay oo nga pala, tapos na yung poem na sinulat ko about you!!`,
@@ -33,35 +33,18 @@ Just call my name, and I’ll be there.`,
     `thank you for reading this!!!`
 ];
 
-function explodeHearts() {
+function showPicture() {
     let heart = document.getElementById("heart");
-    let container = document.querySelector(".container");
+    let picture = document.getElementById("picture");
 
     heart.style.display = "none";
-
-    for (let i = 0; i < 10; i++) {
-        let smallHeart = document.createElement("div");
-        smallHeart.classList.add("heart");
-        smallHeart.innerHTML = "💖";
-
-        let x = (Math.random() - 0.5) * 300;
-        let y = (Math.random() - 0.5) * 300;
-
-        smallHeart.style.left = `50%`;
-        smallHeart.style.top = `50%`;
-        smallHeart.style.transform = `translate(${x}px, ${y}px)`;
-
-        container.appendChild(smallHeart);
-
-        setTimeout(() => {
-            smallHeart.remove();
-        }, 1000);
-    }
+    picture.classList.remove("hidden");
 
     setTimeout(() => {
+        picture.classList.add("hidden");
         document.getElementById("content").classList.remove("hidden");
         typeLetter();
-    }, 1000);
+    }, 2000);
 }
 
 function typeLetter() {
@@ -92,9 +75,29 @@ function typeLetter() {
 
 function nextPage() {
     if (!typingFinished) return;
-    
+
     page++;
     if (page < pages.length) {
         typeLetter();
     }
 }
+
+function createFloatingHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("floating-heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw"; 
+    heart.style.top = "100vh"; 
+
+    let size = Math.random() * 20 + 10;
+    heart.style.fontSize = size + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createFloatingHeart, 500);
