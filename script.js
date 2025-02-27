@@ -33,7 +33,7 @@ Just call my name, and I’ll be there.`,
     `thank you for reading this!!!`
 ];
 
-function showPicture() {
+function showContent() {
     let heart = document.getElementById("heart");
     let content = document.getElementById("content");
 
