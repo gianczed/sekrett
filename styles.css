@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
 body {
     background-color: #ffd6e0;
     display: flex;
@@ -5,7 +7,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Dancing Script', cursive;
     overflow: hidden;
     position: relative;
 }
@@ -14,6 +16,8 @@ body {
     text-align: center;
     position: relative;
     z-index: 10;
+    width: 90%;
+    max-width: 600px;
 }
 
 #heart {
@@ -26,13 +30,17 @@ body {
     transform: translate(-50%, -50%);
 }
 
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #picture {
-    width: 300px;
+    width: 250px;
     height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .hidden {
@@ -40,22 +48,23 @@ body {
 }
 
 #letter {
-    font-size: 20px;
+    font-size: 22px;
     color: #d00000;
-    max-width: 400px;
-    margin: 20px auto;
     text-align: center;
+    max-width: 400px;
+    line-height: 1.6;
 }
 
 #nextButton {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     background-color: #ff4d6d;
     color: white;
     border: none;
     cursor: pointer;
     margin-top: 10px;
     border-radius: 5px;
+    font-family: 'Dancing Script', cursive;
 }
 
 #nextButton:hover {
