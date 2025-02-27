@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
 body {
-    background-color: #ffd6e0;
+    background-color: #ffdee9;
+    background: linear-gradient(135deg, #ffdee9, #b5fffc);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,51 +15,27 @@ body {
 
 .container {
     text-align: center;
-    position: relative;
     z-index: 10;
     width: 90%;
     max-width: 600px;
 }
 
-/* Heart Button */
-#heart {
-    width: 100px;
-    height: 90px;
-    background-color: red;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Start Button */
+#startButton {
+    padding: 15px 25px;
+    font-size: 22px;
+    background-color: #ff4d6d;
     color: white;
-    font-size: 20px;
+    border: none;
     cursor: pointer;
-    transform: rotate(45deg);
-    margin: auto;
-    margin-top: 50px;
+    border-radius: 30px;
+    font-family: 'Dancing Script', cursive;
+    transition: transform 0.3s ease;
 }
 
-#heart::before,
-#heart::after {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    border-radius: 50%;
-}
-
-#heart::before {
-    top: -50px;
-    left: 0;
-}
-
-#heart::after {
-    left: -50px;
-    top: 0;
-}
-
-#heart:hover {
-    transform: scale(1.1) rotate(45deg);
+#startButton:hover {
+    background-color: #d00000;
+    transform: scale(1.1);
 }
 
 #content {
@@ -72,31 +49,31 @@ body {
 #picture {
     width: 250px;
     height: auto;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 20px;
-}
-
-.hidden {
-    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in;
 }
 
 #letter {
-    font-size: 22px;
+    font-size: 24px;
     color: #d00000;
     text-align: center;
     max-width: 400px;
     line-height: 1.6;
+    opacity: 0;
+    transition: opacity 1s ease-in;
 }
 
 #nextButton {
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 12px 20px;
+    font-size: 20px;
     background-color: #ff4d6d;
     color: white;
     border: none;
     cursor: pointer;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
     font-family: 'Dancing Script', cursive;
 }
 
@@ -104,6 +81,11 @@ body {
     background-color: #d00000;
 }
 
+.hidden {
+    display: none;
+}
+
+/* Floating Hearts */
 @keyframes floatHearts {
     0% {
         transform: translateY(0) scale(1);
