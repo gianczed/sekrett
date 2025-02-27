@@ -2,9 +2,9 @@ let page = 0;
 let typingFinished = false;
 
 const pages = [
-    `Hii, jo!!!,  
+    `Hii, jo!!! 💕  
 I made this site for you hehe, ahhm`,
-    `baka sira tong code ko na to`,
+    `baka sira tong code ko na to 😂`,
     `wag mo nalang inext pag di pa tapos i type HAHAHHSHA`,
     `Ay oo nga pala, tapos na yung poem na sinulat ko about you!!`,
     `and guess what!`,
@@ -28,23 +28,19 @@ I’ll be right there, no need for cries.
 No matter what, no matter where,  
 Just call my name, and I’ll be there.`,
     `And one thing I really want to say...`,
-    `I really like you.`,
+    `I really like you. ❤️`,
     `and yeah, I'm always here for you.`,
     `thank you for reading this!!!`
 ];
 
 function showPicture() {
     let heart = document.getElementById("heart");
-    let picture = document.getElementById("picture");
+    let content = document.getElementById("content");
 
     heart.style.display = "none";
-    picture.classList.remove("hidden");
+    content.classList.remove("hidden");
 
-    setTimeout(() => {
-        picture.classList.add("hidden");
-        document.getElementById("content").classList.remove("hidden");
-        typeLetter();
-    }, 2000);
+    setTimeout(typeLetter, 1000);
 }
 
 function typeLetter() {
