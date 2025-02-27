@@ -28,8 +28,10 @@ I’ll be right there, no need for cries.
 No matter what, no matter where,  
 Just call my name, and I’ll be there.`,
     `And one thing I really want to say...`,
-    `I really like you.`,
-    `and yeah, I'm always here for you.`,
+    `And make life so much more beautiful.`,
+    `No matter what happens, I'm always here for you.`,
+    `You are loved, appreciated, and cherished. 💖`,
+    `Thank you for being you.`,
     `thank you for reading this!!!`
 ];
 
